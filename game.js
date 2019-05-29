@@ -2,6 +2,7 @@ module.exports = {
   scoreFrame: scoreFrame
 }
 
-function scoreFrame(){
-  return 0
+function scoreFrame(frame) {
+  return frame[0] + frame[1]
 }
+
