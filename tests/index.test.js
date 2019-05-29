@@ -19,12 +19,15 @@ test('scores a normal frame', () => {
 })
 
 test('scores a spare frame', () => {
-  const frame = [[9, 1], [2,4]]
+  const frame = [[9, 1], [2, 4]]
   const expected = 12
   const actual = game.scoreSpare(frame)
   expect(actual).toBe(expected)
 })
 
 test('scores a single strike frame', () => {
-  
+  const frame = [[10, 0], [5, 3]]
+  const expected = 18
+  const actual = game.scoreStrike(frame)
+  expect(actual).toBe(expected)
 })
