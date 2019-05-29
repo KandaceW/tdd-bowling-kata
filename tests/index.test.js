@@ -17,3 +17,10 @@ test('scores a normal frame', () => {
   const actual = game.scoreFrame(frame)
   expect(actual).toBe(expected)
 })
+
+test('scores a spare frame', () => {
+  const frame = [[9, 1], [2,4]]
+  const expected = 12
+  const actual = game.scoreSpare(frame)
+  expect(actual).toBe(expected)
+})
