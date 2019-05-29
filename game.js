@@ -1,7 +1,12 @@
 module.exports = {
-  scoreFrame: scoreFrame
+  gutterFrame: gutterFrame,
+  normalFrame: normalFrame,
 }
 
-function scoreFrame (frame) {
+function gutterFrame (frame) {
   return 0
+}
+
+function normalFrame (frame) {
+  return 5
 }
