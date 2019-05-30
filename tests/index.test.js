@@ -31,6 +31,6 @@ test('scores a single strike frame', () => {
   const nextFrame = [5, 3]
   const strikeFrame = [10, 0]
   const expected = 18
-  const actual = game.scoreFrame(frame, nextFrame)
+  const actual = game.scoreFrame(strikeFrame, nextFrame)
   expect(actual).toBe(expected)
 })
