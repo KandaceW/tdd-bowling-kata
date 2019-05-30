@@ -4,6 +4,7 @@ module.exports = {
   scoreStrike: scoreStrike,
   scoreDoubleStrike: scoreDoubleStrike,
   scoreGame: scoreGame,
+  scoreGameTenth: scoreGameTenth,
 }
 
 
@@ -35,9 +36,39 @@ function scoreGame(frames){
   for(var i = 0; i < frames.length; i++){
     finalScore.push(frames[i][0]+ frames[i][1])
   }
-  // finalScore(total,num)
-  // for(var j = 0; j < finalScore.length; j++){
-  //   finalScore[j]+ finalScore[j]
-  // }
-return finalScore[0] + finalScore[1] + finalScore[2] +finalScore[3] +finalScore[4] +finalScore[5] +finalScore[6] +finalScore[7] +finalScore[8] +finalScore[9]
+  var count = 0
+  for(var j = 0; j < finalScore.length; j++){
+    if(j!= 9) {
+    count += finalScore[j]
+  } else { 
+    count += finalScore[j]
+  }
+}
+  return count
+}
+
+function scoreGameTenth (frames) {
+  var strikeScore = []
+  var gameScore = []
+  var finalScore = 0
+
+  if (frames[9][0] === 10){ 
+    strikeScore.push(frames[9][0] + frames[9][1] + frames[9][2]) 
+  }  
+  for (var i = 0; i < frames.length - 1; i++) {
+    gameScore.push(frames[i][0] + frames[i][1])
+    } 
+
+  var count = 0
+  for(var j = 0; j < gameScore.length; j++){
+    if(j!= 9) {
+    count += gameScore[j]
+  } else { 
+    count += gameScore[j]
+  }
+  }
+  finalScore += strikeScore[0]
+
+  return finalScore + count
+  
 }
