@@ -45,10 +45,10 @@ function scoreDoubleStrike (frame, frame2, frame3) {
 function scoreTerribleGame (frames) {
   var result = 0
   for(var i = 0; i < frames.length; i++) {
-  result = result + scoreFrame(frames[i])
-  if (frame[0] + frame[1] == 10 && i < 9) {
-    result += scoreSpare(frames)
-  }
+    result = result + scoreFrame(frames[i])
+    if (frames[0] + frames[1] == 10 && i < 9) {
+      result += scoreSpare(frames)
+    }
 }
   return result
 }
