@@ -35,17 +35,19 @@ test ('scores a strike frame', () => {
 })
 
 test ('score a double strike', () => {
-    const frames = [[10, 0], [10, 0], [6, 1]]
-    const expected = 27
-    const actual = game.doubleStrike(frames)
+    const frame1 = [10, 0]
+    const frame2 = [10, 0]
+    const frame3 = [0, 7]
+    const expected = 44
+    const actual = game.doubleStrike(frame1, frame2, frame3)
     expect(actual).toBe(expected)
 })
 
-test ('scores a game', () => {
-    const frames = [[2, 3], [4, 5], [7, 2], [10, 0], [9, 0], [6, 3], [3, 1], [1, 1], [6, 4], [7, 3,63]]
-    const expected = 98
-    const actual = game.addGame(frames)
-    expect(actual).toBe(expected)
-})
+// test ('scores a game', () => {
+//     const frames = [[2, 3], [4, 5], [7, 2], [10, 0], [9, 0], [6, 3], [3, 1], [1, 1], [6, 4], [7, 3,63]]
+//     const expected = 98
+//     const actual = game.addGame(frames)
+//     expect(actual).toBe(expected)
+// })
 
 
