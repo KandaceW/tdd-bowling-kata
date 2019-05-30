@@ -50,14 +50,14 @@ test('scores a single strike frame with different results', () => {
   expect(actual).toBe(expected)
 })
 
-test('scores a double strike frame', () => {
-  const frame = [10, 0]
-  const nextFrame = [10, 0]
-  const thirdFrame = [1, 0]
-  const expected = 21
-  const actual = game.scoreDoubleStrike(frame, nextFrame, thirdFrame)
-  expect(actual).toBe(expected)
-})
+// test('scores a double strike frame', () => {
+//   const frame = [10, 0]
+//   const nextFrame = [10, 0]
+//   const thirdFrame = [1, 0]
+//   const expected = 21
+//   const actual = game.scoreDoubleStrike(frame, nextFrame, thirdFrame)
+//   expect(actual).toBe(expected)
+// })
 
 test('checks if frames is a spare', () => {
   const frameIsSpare = [3, 7]
@@ -75,95 +75,95 @@ test('checks if frame is a strike', () => {
   expect(actual).toEqual(expected)
 })
 
-test('scores a game where there are no spares or strikes', () => {
-  const frames = [
-    [1, 1],
-    [1, 1],
-    [1, 1],
-    [1, 1],
-    [1, 6],
-    [1, 1],
-    [1, 1],
-    [1, 0],
-    [1, 1],
-    [1, 1],
-  ]
-  const expected = 24
-  const actual = game.scoreGame(frames)
-  expect(actual).toEqual(expected)
-})
+// test('scores a game where there are no spares or strikes', () => {
+//   const frames = [
+//     [1, 1],
+//     [1, 1],
+//     [1, 1],
+//     [1, 1],
+//     [1, 6],
+//     [1, 1],
+//     [1, 1],
+//     [1, 0],
+//     [1, 1],
+//     [1, 1],
+//   ]
+//   const expected = 24
+//   const actual = game.scoreGame(frames)
+//   expect(actual).toEqual(expected)
+// })
 
-test('scores a game where there are no strikes but there are spares', () => {
-  const frames = [
-    [1, 1],
-    [1, 9],
-    [1, 1],
-    [3, 7],
-    [1, 6],
-    [1, 1],
-    [5, 5],
-    [1, 0],
-    [0, 0],
-    [1, 1],
-  ]
-  const expected = 49
-  const actual = game.scoreGame(frames)
-  expect(actual).toEqual(expected)
-})
+// test('scores a game where there are no strikes but there are spares', () => {
+//   const frames = [
+//     [1, 1],
+//     [1, 9],
+//     [1, 1],
+//     [3, 7],
+//     [1, 6],
+//     [1, 1],
+//     [5, 5],
+//     [1, 0],
+//     [0, 0],
+//     [1, 1],
+//   ]
+//   const expected = 49
+//   const actual = game.scoreGame(frames)
+//   expect(actual).toEqual(expected)
+// })
 
-test('scores a game where there are strikes and spares', () => {
-  const frames = [
-    [1, 1],
-    [1, 9],
-    [10, 0],
-    [3, 7],
-    [1, 6],
-    [1, 1],
-    [10, 0],
-    [1, 0],
-    [0, 0],
-    [1, 1],
-  ]
-  const expected = 76
-  const actual = game.scoreGame(frames)
-  expect(actual).toEqual(expected)
-})
+// test('scores a game where there are strikes and spares', () => {
+//   const frames = [
+//     [1, 1],
+//     [1, 9],
+//     [10, 0],
+//     [3, 7],
+//     [1, 6],
+//     [1, 1],
+//     [10, 0],
+//     [1, 0],
+//     [0, 0],
+//     [1, 1],
+//   ]
+//   const expected = 76
+//   const actual = game.scoreGame(frames)
+//   expect(actual).toEqual(expected)
+// })
 
-test('scores a game where there are strikes and spares and doublestrikes', () => {
-  const frames = [
-    [1, 1],
-    [1, 9],
-    [10, 0],
-    [3, 7],
-    [1, 6],
-    [1, 1],
-    [10, 0],
-    [10, 0],
-    [0, 0],
-    [1, 1],
-  ]
-  const expected = 94
-  const actual = game.scoreGame(frames)
-  expect(actual).toEqual(expected)
-})
+// test('scores a game where there are strikes and spares and doublestrikes', () => {
+//   const frames = [
+//     [1, 1],
+//     [1, 9],
+//     [10, 0],
+//     [3, 7],
+//     [1, 6],
+//     [1, 1],
+//     [10, 0],
+//     [10, 0],
+//     [0, 0],
+//     [1, 1],
+//   ]
+//   const expected = 94
+//   const actual = game.scoreGame(frames)
+//   expect(actual).toEqual(expected)
+// })
 
-test('scores a spare in the 10th frame', () => {
-  const frames = [
-    [1, 1],//2
-    [1, 9],//20
-    [10, 0],//20
-    [3, 7],//11
-    [1, 6],//7
-    [1, 1],//2
-    [10, 0],//30
-    [10, 0],//27
-    [10, 0],//20
-    [7, 3, 6],//16
-  ]
-  const expected = 155
-  const actual = game.scoreGame(frames)
-  expect(actual).toEqual(expected)
-})
+// test('scores a spare in the 10th frame', () => {
+//   const frames = [
+//     [1, 1],//2
+//     [1, 9],//20
+//     [10, 0],//20
+//     [3, 7],//11
+//     [1, 6],//7
+//     [1, 1],//2
+//     [10, 0],//30
+//     [10, 0],//27
+//     [10, 0],//20
+//     [7, 3, 6],//16
+//   ]
+//   const expected = 155
+//   const actual = game.scoreGame(frames)
+//   expect(actual).toEqual(expected)
+// })
 
 test('Perfect game', () => {
   const frames = [

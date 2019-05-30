@@ -2,7 +2,6 @@ module.exports = {
   scoreFrame: scoreFrame,
   scoreSpare: scoreSpare,
   scoreStrike: scoreStrike,
-  scoreDoubleStrike: scoreDoubleStrike,
   isSpare: isSpare,
   isStrike: isStrike,
   scoreGame: scoreGame
@@ -20,11 +19,25 @@ function scoreSpare(frame, nextFrame) {
 }
 
 function scoreStrike(frame, nextFrame) {
-  return scoreFrame(frame) + nextFrame[0] + nextFrame[1]
+
+  if (isDoubleStrike(frame, nextFrame)) {
+
+    let total = 0
+
+    total += frame[0] + frame[1]
+
+    if (nextFrame) { total += nextFrame[0] + nextFrame[1] }
+    if (thirdFrame) { total += thirdFrame[0] }
+
+    return total
+
+  }
+
+  return frame[0] + frame[1] + nextFrame[0] + nextFrame[1]
 }
 
-function scoreDoubleStrike(frame, nextFrame, thirdFrame) {
-  return scoreFrame(frame) + nextFrame[0] + nextFrame[1] + thirdFrame[0]
+function scoreLastFrame(frame){
+  return frame[0] + frame[1] + frame[2]
 }
 
 function isSpare(frame) {
@@ -40,30 +53,40 @@ function isStrike(frame) {
 }
 
 function isDoubleStrike(frame, nextFrame) { console.log(frame, nextFrame)
-  // console.log((frame[0] === 10 && nextFrame[0] === 10 ? true : false))
-  // return (frame[0] === 10 && nextFrame[0] === 10 ? true : false)
+
+
+
   if (frame[0] === 10 && nextFrame[0] === 10) {
-    console.log('true')
+
     return true
   } else {
     return false
   }
 }
 
+function isLastFrame(frame){
+  return (frame.length === 3 ? true : false)
+}
+
 function scoreGame(frames) {
 
   var gameScore = 0
 
-  for (var i = 0; i < frames.length; i++) {
+  for (var i = 0; i < frames.length - 1; i++) {
 
     var frame = frames[i]
+    var nextFrame = frames[i + 1]
+    var thirdFrame = frames[i + 2]
 
-    if (frames[i + 1]) { var nextFrame = frames[i + 1] }
-    if (frames[i + 2]) { var thirdFrame = frames[i + 2] }
+    
+    if (isLastFrame(frame)){
 
-    if (isDoubleStrike(frame, nextFrame, thirdFrame)) {
+      gameScore += scoreLastFrame(frame)
+      console.log('Last Frame', gameScore)
+
+    } else if (isDoubleStrike(frame, nextFrame, thirdFrame)) {
       
-      gameScore += scoreDoubleStrike(frame, nextFrame, thirdFrame)
+      gameScore += scoreStrike(frame, nextFrame, thirdFrame)
       console.log('DOUBLE STRIKE', gameScore)
 
     } else if (isStrike(frame)) {
@@ -73,7 +96,7 @@ function scoreGame(frames) {
 
     } else if (isSpare(frame)) {
       
-      gameScore += scoreSpare(frame, nextFrame, thirdFrame)
+      gameScore += scoreSpare(frame, nextFrame)
       console.log('SPARE', gameScore)
     } else {
 
@@ -82,6 +105,8 @@ function scoreGame(frames) {
     }
 
   }
+
+  gameScore += scoreLastFrame
 
   console.log('Congrats, you scored:', gameScore)
   return gameScore
