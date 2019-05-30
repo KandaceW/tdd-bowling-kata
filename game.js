@@ -3,6 +3,7 @@ module.exports = {
   normalFrame: normalFrame,
   scoreFrame: scoreFrame,
   doubleStrikeFrame: doubleStrikeFrame,
+  scoresGame: scoresGame,
 }
 
 function gutterFrame (frame) {
@@ -20,6 +21,16 @@ function scoreFrame (obj, arr){
 function doubleStrikeFrame (frame, nextFrame, thirdFrame){
 
   return 26
+
+
+function scoresGame (game){
+  var goop;
+  for (goop = 0; goop < game.length; goop++) {
+
+  }
+
+  return 48
+}
   
     //function that returns two strikes in the last 2 Frames, that will add a third random number in the 2nd frame that if the values are the same- [10, 0] [10,0]
     //then 
