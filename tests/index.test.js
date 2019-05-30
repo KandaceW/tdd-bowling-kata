@@ -1,4 +1,4 @@
-const game = require('../game') // this is the line to add
+const game = require('../game') // this is the line to adspare
 
 // test('test setup working', () => {
 //   expect(true).toBeTruthy()
@@ -20,3 +20,10 @@ test('scores a normal frame', () => {
   expect(actual).toBe(expected)
 })
 
+test('scores a spare frame', () => {
+  const frame = [3 , 7]
+  const nextFrame = [2 , 0]
+  const expected = 12
+  const actual = game.scoreFrame(frame, nextFrame)
+  expect(actual).toBe(expected)
+})
