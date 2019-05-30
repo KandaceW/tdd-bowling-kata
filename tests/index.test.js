@@ -50,10 +50,12 @@ test('scores a terrible game', () => {
   expect(actual).toBe(expected)
 })
 
-// test('scores a great game', () => {
-//   const frames = [[10, 0],[10, 0],[10, 0],[10, 0],[10, 0],[10, 0],[10, 0],[10, 0],[10, 0],[10, 10, 10],]
-//   const expected = 300
-//   const actual = game.scoreGreatGame(frames)
-//   expect(actual).toBe(expected)
-// })
+test('scores a terrible game', () => {
+  const frames = [[1, 1],[1, 1],[1, 1],[1, 9],[1, 1],[1, 1],[1, 1],[1, 1],[1, 1],[1, 1],]
+  const expected = 20
+  const actual = game.scoreTerribleGame(frames)
+  expect(actual).toBe(expected)
+})
+
+
 

@@ -3,22 +3,23 @@ module.exports = {
   scoreSpare: scoreSpare,
   scoreStrike: scoreStrike,
   scoreDoubleStrike: scoreDoubleStrike,
-  scoreTerribleGame: scoreTerribleGame
+  scoreTerribleGame: scoreTerribleGame,
+  
 }
 
-var frames = [
-  [1, 2], 
-  [6, 3], 
-  [5, 4], 
-  [1, 0], 
-  [7, 2], 
-  [1, 0], 
-  [1, 0], 
-  [5, 2], 
-  [7, 0], 
-  [4, 4]
+// var frames = [
+//   [1, 2], 
+//   [6, 3], 
+//   [5, 4], 
+//   [1, 0], 
+//   [7, 2], 
+//   [1, 0], 
+//   [1, 0], 
+//   [5, 2], 
+//   [7, 0], 
+//   [4, 4]
 
-  ]
+//   ]
 
   
 
@@ -44,11 +45,15 @@ function scoreDoubleStrike (frame, frame2, frame3) {
 function scoreTerribleGame (frames) {
   var result = 0
   for(var i = 0; i < frames.length; i++) {
-  result = result + scoreTerribleGame(frames[i])
+  result = result + scoreFrame(frames[i])
+  if (frame[0] + frame[1] == 10 && i < 9) {
+    result += scoreSpare(frames)
+  }
 }
+  return result
 }
 
-//function spareFrame (frame, frame2) {
-//var newArr = 0
-// if frame = 10 then add frame2 function
-//  result frame + frame2[0]
+
+
+
+
