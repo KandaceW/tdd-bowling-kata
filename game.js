@@ -3,5 +3,13 @@ module. exports = {
 }
 
 function scoreFrame(frame) {
-  return 0
+ var ball = frame[0] + frame[1]
+ return ball
 }
+
+
+
+
+
+
+
