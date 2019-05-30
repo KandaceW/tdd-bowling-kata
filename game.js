@@ -4,12 +4,18 @@ module. exports = {
 
 
 function scoreFrame(frame, nextFrame) {
-  // if framescore = 10 then add the first item of the next frame.
-  // otherwise, framescore only equals the first and second item of the first frame
-  if(frameScore === 10 + nextFrame[0]) {
+  var first = frame[0]
+  var second = frame[1]
+  var frameScore = first + second
+
+  if (first === 10) {
+    frameScore = frameScore + nextFrame[0] + nextFrame[1]
+  } else if (first + second === 10) {
+    frameScore = frameScore + nextFrame[0]
+  } 
+    
   
-var frameScore = frame[0] + frame[1] + nextFrame[0]
-return frameScore
+  return frameScore
 }
 
 
