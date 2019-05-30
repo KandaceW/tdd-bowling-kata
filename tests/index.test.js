@@ -19,6 +19,21 @@ test('scores a normal frame', () => {
   expect(actual).toBe(expected)
 })
 
+test ('scores a single strike frame', () => {
+})
+
+test('scores a double strike frame', () => {
+  const frame = [10, 0] 
+  const nextFrame = [10, 0]
+  const thirdFrame = [6, 0]
+  const expected = 26
+  const actual = game.doubleStrikeFrame(frame, nextFrame, thirdFrame)
+  expect(actual).toBe(expected)
+})
+
+
+
+
 //module.exports = {
 
   //game: game,
