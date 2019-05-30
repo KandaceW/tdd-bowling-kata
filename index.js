@@ -18,17 +18,19 @@ function scoreGame(frames) {
 
     score += (scoreFrame(frames[i], nextFrame, thirdFrame))
   }
+  console.log(score)
   return score
 }
 
 function scoreFrame(frame, nextFrame, thirdFrame) {
-  console.log(frame)
+  // console.log(frame)
   ballOne = frame[0];
   ballTwo = frame[1];
 
   if ((ballOne + ballTwo) < 10) {
     return scoreNormalFrame(frame, nextFrame, thirdFrame)
   }
+
   else if ((ballOne + ballTwo) === 10 && ballOne !== 10) {
     return scoreSpareFrame(frame, nextFrame, thirdFrame)
   }
@@ -39,6 +41,7 @@ function scoreFrame(frame, nextFrame, thirdFrame) {
   else if (ballOne === 10 && nextFrame[0] === 10) {
     return scoreDoubleStrike(frame, nextFrame, thirdFrame)
   }
+
 }
 
 
@@ -57,3 +60,7 @@ function scoreSingleStrike(frame, nextFrame, thirdFrame) {
 function scoreDoubleStrike(frame, nextFrame, thirdFrame) {
   return 20 + thirdFrame[0]
 }
+
+// function finalFrameSpare(frame) {
+//   return frame[0] + frame[1] + frame[2]
+// }
